@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inverse bg-inverse">
+    <a class="navbar-brand">Auth Page</a>
+</nav>
+<div class="bg-danger m-t-1 p-a-1 text-xs-center" *ngIf="errorMessage!=null">
+    {{errorMessage}}
+</div>
+<div class="p-a-1">
+    <form (ngSubmit)="authenticate(adminform)" #adminform="ngForm">
+        <div class="form-group">
+            <label>Enter the name:</label>
+            <input class="form-control" type="text" [(ngModel)]="username" name="username">
+        </div>
+        <div class="form-group">
+            <label>Enter the password:</label>
+            <input class="form-control" type="password" [(ngModel)]="password" name="password">
+        </div>
+        <div class="text-xs-center">
+            <button class="btn btn-secondary" routerLink="/">Go Back</button>
+            <button class="btn btn-primary" type="submit">Log In</button>
+        </div>
+    </form>
+
+</div>
