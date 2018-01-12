@@ -1,0 +1,488 @@
+
+ES6 - JS
+
+1) Template String
+2) Fat Arrow Functions
+3) Destructions
+4) Set & Map
+5) Promises - Async
+6) for of loop
+
+-------------------------------------------------
+nodejs - package manager
+-------------------------------------------------
+
+TypeScript:
+
+superset of JS
+
+.ts
+
+tsc ( ts -> js)
+tsc - ES5 - default
+tsc -t ES6 employee.ts
+-------------------------------------------------
+Installing TypeScript:
+nodejs
+
+npm install -g typescript
+
+tsc -v 
+---------------------------------------------------
+tsc hello.ts
+hello.js
+
+Datatypes: 
+Number
+String 
+Boolean
+Any
+Array
+Tuple
+Enum
+Void 
+
+---------------------------------------------------
+
+Features of TypeScript:
+1) Static Typings    - TS
+2) Class & Objects  - TS, ES6.0
+3) Inheritance  - TS, ES6.0
+4) Interface   - TS
+5) Union Types  - TS
+6) Generics  - TS
+
+---------------------------------------------------
+
+npm install -g @angular/cli
+
+---------------------------------------------------
+
+
+Create a class Product 
+- with attributes
+	id?: number
+	name?: string
+	category?: string
+	description?: string
+	price?: number
+
+Create a class ProductRepository implements IProductRepository
+- with attribute 
+	Array<Product>
+- with Behaviour 
+	- addProduct(product : Product) : void
+	- updateProduct(product : Product) : void
+	- deleteProduct(pid:number) : void
+   	- getProductById(pid:number) : Product
+	- getProducts() : Array<Product>
+	- getCategories() : Array<String>
+
+Test :
+Create few Product objects, add it inside ProductRepository 
+Test updateProduct,  deleteProduct,  getProductById, getProducts also
+
+-----------------------------------------
+
+Features of Angular 2
+1) Two-Way Data Binding
+2) Powerful Routing Support
+3) Expressive HTML  - Template
+4) Modular by Design
+5) Built in Back End Support (Database, Log, WebService)
+6) Active Community
+	
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------
+
+
+Key differences between Angular 1 & Angular 2
+1) Support for ES6
+2) Components are new controllers
+3) Directives *ngFor
+4) Data Bindings
+5) $scopes are out
+6) Filters are renamed to Pipes
+7) Platform specific Bootstrap
+8) Services  - Factory, Abstract Factory, Utilities, Singleton
+9) Mobile Support
+
+
+-----------------------------------------
+
+Angular Architecture:
+
+1) Component   -  Root, Feature
+2) Directives  - *ngFor, *ngIf, *ngIf else, *ngSwitch  + Custom Directives
+- manipulate the DOM
+3) Services - Singleton, Share the Services obj
+4) Pipes - + Custom Pipes
+ 
+-----------------------------------------
+
+Angular2 
+AngularCLI
+
+
+Install angular cli:
+npm install -g @angular/cli
+
+ng -v
+
+Create a Project Structure:
+ng new storeapp
+
+cd storeapp
+
+package.json:
+"bootstrap": "4.0.0-alpha.4",
+"font-awesome": "4.7.0"
+
+npm install
+
+.angular-cli.json:
+
+"styles": [
+        
+"styles.css",
+        
+"../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css"
+     
+]
+
+Start the Server:
+ng serve
+
+http://localhost:4200
+
+--------------------------------------------------------
+
+1) package.json
+
+2) tslint.json:
+static code analyzer
+
+3) tsconfig.json  (tsc)
+typescript 
+
+4) karma.conf.js
+- Karma Framework 
+
+5) protactor.conf.js: 
+- Protactor (e2e test) F/W
+
+6) .angular-cli.json:
+ "index": "index.html"
+  "main": "main.ts"
+
+----------------------------------------------------------------
+
+Angular Architecture:
+
+ts - class
+
+The Class Decorator
+
+1) Module
+@NgModule
+
+declarations
+// components, directives, pipes
+
+providers
+// services
+// singleton
+// shared
+// Dependency Injection
+
+exports
+// components, directives, pipes - reuse in other modules
+
+imports
+// import the other module
+
+bootstrap - Root Component
+
+
+BrowserModule - CommonModule (angular core)
+
+
+
+2) Component  - tag
+@Component
+- selector    - name of your tag
+- templateUrl   - html file
+- styleUrls        - css files 
+
+3) Services
+@Injectable()
+
+4) Directive
+@Directive
+
+5) Pipes
+@Pipe  & interface PipeTransform
+
+
+--------------------------------------------------------------------
+
+
+index.html  - <app-root>
+
+main.ts 
+- AppModule  (import - ProductModule)
+- AppComponent
+	- app.component.html - <app-productlist>
+
+
+ProductModule
+- ProductComponent ( declaration, exports)
+	- product.component.html
+
+ModelModule
+- ProductService  (providers)
+- CartService
+
+--------------------------------------------------------------------
+
+Routing:
+
+1) Define the  Routes:
+
+/product	ProductComponent	(html)
+/cart	CartDetailsComponent (html)
+/checkout  CheckoutComponent   (html)
+
+RouterModule
+
+2) <router-outlet> tag
+
+3) Navigate to the URL:
+Programmatic:
+RouterModule  - Router  (Service)
+ - navigateByUrl
+
+Declarative: 
+routerLink
+
+Note: RouterModule import 
+
+--------------------------------------------------------------------
+
+Angular2 
+2 way of form:
+1) Template-driven form - [()]
+2) Reactive form 
+
+--------------------------------------------------------------------
+1) Template-driven form
+
+Two-binding: (banana in a box)
+[(ngModel)]
+
+Note:  a) FormsModule import
+           b) model object		
+--------------------------------------------------------------------
+
+REST: (Resource)
+
+Roy Fielding
+
+ics.uci.edu
+
+3 Principle:
+
+1) Addressability
+/path
+2) The uniform constrained interface
+GET
+POST
+PUT HEAD TRACE OPTION DELETE (HTTP 1.0)/1.1/2.0
+3) HATEOS
+
+
+
+JSON Server:
+
+JSON - expose - REST Services
+
+1) data.js
+
+2) "json-server": "0.12.1"     - devDependencies - package.json
+     "json" : "json-server data.js -p 3500"      -script - 	package.json
+
+3) npm run json
+
+
+
+
+http://localhost:3500/products         - GET
+http://localhost:3500/products/1      - GET
+http://localhost:3500/products  {}   - POST
+http://localhost:3500/products/1 {}  - PUT
+http://localhost:3500/products/1       - DELETE
+
+
+/orders        - GET
+/orders/1      - GET
+/orders   {}   - POST
+/orders/1 {}  - PUT
+/orders/1       - DELETE
+
+-------------------------------------------------
+
+
+AJAX call
+
+1) HttpModule import
+
+2) Http - Service
+
+-------------------------------------------------
+
+2 way of form:
+1) Template-driven form - [()]
+2) Reactive form 
+
+ReactiveFormModule
+
+FormGroup
+FormControl
+
+------------------------------------------------------------------------
+
+
+Module, Component, Service, Directive(strucutural, attribute), Pipe
+
+BrowserModule - CommonModule
+
+RoutesModule
+
+FormsModule
+
+ReactiveFormsModule
+
+HttpModule
+
+--------------------------------------------------------------
+
+ng new myproject
+
+ng serve 
+- webpack - dev
+
+ng serve -prod
+
+Debugtool:
+Augury
+
+
+ng build
+
+AOT Compile
+
+ng build -target=production
+--------------------------------------------------------------
+
+
+Monolithic Application
+
+Virtualization
+
+Containerization
+
+Docker - Microsoft
+
+https://www.microsoft.com/en-us/download/details.aspx?id=592
+
+
+https://docs.docker.com/toolbox/toolbox_install_windows/
+
+
+
+----------------------------------------------
+
+cd c:
+cd d:
+
+
+
+docker build . -t  storeapp -f Dockerfile
+
+docker images
+
+docker run -p 3000:3000 -p3500:3500 storeapp 
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -a -q)
+
+
+http://192.168.99.100:3000/product
+
+http://192.168.99.100:3500/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
